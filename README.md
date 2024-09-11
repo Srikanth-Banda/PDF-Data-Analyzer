@@ -19,7 +19,7 @@ This project is ideal for anyone needing to search and retrieve information from
 
 ## Demo
 
-Check out the live demo [here](https://pdf-data-analyzer.streamlit.app/).
+Check out the live demo [here](https://gemini-genai-doc-chatbot.streamlit.app/).
 
 ## Installation
 
