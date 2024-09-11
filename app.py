@@ -72,8 +72,10 @@ def handle_user_question(user_question):
 
     # Log the response
     st.write("LLM Response: ", answer)
-    st.markdown("<div class='source-documents'><strong>Source Documents:</strong> "+str(source_documents)+"</div>", unsafe_allow_html=True)
-
+    # Display source documents inside a collapsible expander
+    if source_documents:
+        with st.expander("Source Documents (Click to expand)"):
+            st.write(source_documents)
     # Display the chat history with alternating user and bot messages
     for i, message in enumerate(st.session_state.chat_history):
         if i % 2 == 0:
