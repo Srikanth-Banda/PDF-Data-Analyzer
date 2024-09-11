@@ -2,3 +2,4 @@ __pycache__/
 .env
 pdf-analyzer-venv
 .DS_Store
+images/
