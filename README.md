@@ -20,6 +20,7 @@ This project is ideal for anyone needing to search and retrieve information from
 ## Demo
 
 Check out the live demo [here](https://gemini-genai-doc-chatbot.streamlit.app/).
+![App Screenshot](assets/images/demo_screenshot.jpg)
 
 ## Installation
 
@@ -82,10 +83,7 @@ You can now access the application on `http://localhost:8501` and start interact
 - **Streamlit**: Frontend for the web interface.
 - **AWS S3**: (Optional) For cloud-based PDF storage.
 
-## Screenshots
-
-![App Screenshot](assets/images/demo_screenshot.jpg)
-- **System Design**:
+## System Design**:
 ![System design Screenshot](assets/images/system_design.jpg)
 
 ## Future Improvements
