@@ -85,6 +85,8 @@ You can now access the application on `http://localhost:8501` and start interact
 ## Screenshots
 
 ![App Screenshot](assets/images/demo_screenshot.jpg)
+- **System Design**:
+![System design Screenshot](assets/images/system_design.jpg)
 
 ## Future Improvements
 
