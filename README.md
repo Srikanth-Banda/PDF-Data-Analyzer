@@ -74,7 +74,7 @@ You can now access the application on `http://localhost:8501` and start interact
 - **Ask Questions**: Once processed, ask natural language questions about the contents of the PDFs.
 - **Get Answers**: The system will return the most relevant sections of the PDF in response to your queries.
 
-## Technology Stack
+## Tech Stack
 
 - **LangChain**: For processing text and conversational AI logic.
 - **Google Gemini AI**: Provides embeddings and conversational responses.
@@ -83,7 +83,7 @@ You can now access the application on `http://localhost:8501` and start interact
 - **Streamlit**: Frontend for the web interface.
 - **AWS S3**: (Optional) For cloud-based PDF storage.
 
-## System Design**:
+## System Design:
 ![System design Screenshot](assets/images/system_design.jpg)
 
 ## Future Improvements
