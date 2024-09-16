@@ -44,7 +44,7 @@ def get_vector_store(text_chunks):
     return vector_store
 
 def get_conversation_chain(vector_store):
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", convert_system_message_to_human=True)
+    llm = ChatGoogleGenerativeAI(model="gemini-1.0-pro", convert_system_message_to_human=True)
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True, output_key='answer')
     retriever = vector_store.as_retriever()
     conversation_chain = ConversationalRetrievalChain.from_llm(
