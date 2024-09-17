@@ -17,9 +17,9 @@ This project is ideal for anyone needing to search and retrieve information from
 - **Streamlit Interface**: Simple and elegant web-based interface, allowing for easy user interaction.
 - **AWS S3 Support**: Optional integration with AWS S3 for cloud storage of PDFs.
 
-## Demo
+## Experience the live project
 
-Check out the live demo [here](https://gemini-genai-doc-chatbot.streamlit.app/).
+Check out the live [Streamlit app demo](https://gemini-genai-doc-chatbot.streamlit.app/).
 
 Project UI:
 ![App Screenshot](assets/images/demo_screenshot.jpg)
