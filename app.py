@@ -9,6 +9,42 @@ from langchain.chains import ConversationalRetrievalChain
 from chat_ui import css, bot_template, user_template
 import boto3
 import os
+from pdf2image import convert_from_path
+import pytesseract
+
+# Ensure Tesseract is configured correctly
+pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'  # Update for your system
+print(pytesseract.pytesseract.tesseract_cmd)
+
+import os
+from tempfile import NamedTemporaryFile
+from pdf2image import convert_from_path
+import pytesseract
+
+# Ensure Tesseract is configured
+pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'  # Update for your system
+
+def get_pdf_text_with_ocr(uploaded_file):
+    """Extract text from a Streamlit UploadedFile using OCR."""
+    text = ""
+
+    # Save the UploadedFile to a temporary file
+    with NamedTemporaryFile(delete=False, suffix=".pdf") as temp_file:
+        temp_file.write(uploaded_file.getbuffer())  # Save the file's content
+        temp_path = temp_file.name
+
+    try:
+        # Convert PDF pages to images
+        images = convert_from_path(temp_path)
+        # Extract text from each image
+        for img in images:
+            text += pytesseract.image_to_string(img)
+    finally:
+        # Remove the temporary file after processing
+        os.remove(temp_path)
+
+    return text
+
 
 
 # Load embeddings using Google's Gemini model
@@ -112,7 +148,8 @@ def main():
                 with st.spinner("Processing"):
                     raw_text = ""
                     for pdf in pdf_docs:
-                        raw_text += get_pdf_text(pdf)
+                        # print(f"\n---------CONSOLE STATEMENT STARTS HERE:-------\n{pdf}\n---------CONSOLE STATEMENT ENDS HERE:-------\n")
+                        raw_text += get_pdf_text_with_ocr(pdf)
 
                     text_chunks = get_text_chunks(raw_text)
                     vector_store = get_vector_store(text_chunks)
