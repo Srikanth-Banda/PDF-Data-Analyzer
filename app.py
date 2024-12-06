@@ -12,17 +12,10 @@ import os
 from pdf2image import convert_from_path
 import pytesseract
 from tempfile import NamedTemporaryFile
-import shutil
+import pytesseract
 
 # Ensure Tesseract is configured
-# pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'  # Update for your system
-
-# Check if Tesseract is installed
-tesseract_path = shutil.which("tesseract")
-# if not tesseract_path:
-#     raise RuntimeError("Tesseract OCR is not installed or not in PATH.")
-pytesseract.pytesseract.tesseract_cmd = tesseract_path
-
+pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'  # Update for your system
 print(pytesseract.pytesseract.tesseract_cmd)
 def get_pdf_text_with_ocr(uploaded_file):
     """Extract text from a Streamlit UploadedFile using OCR."""
