@@ -19,8 +19,8 @@ import shutil
 
 # Check if Tesseract is installed
 tesseract_path = shutil.which("tesseract")
-if not tesseract_path:
-    raise RuntimeError("Tesseract OCR is not installed or not in PATH.")
+# if not tesseract_path:
+#     raise RuntimeError("Tesseract OCR is not installed or not in PATH.")
 pytesseract.pytesseract.tesseract_cmd = tesseract_path
 
 print(pytesseract.pytesseract.tesseract_cmd)
