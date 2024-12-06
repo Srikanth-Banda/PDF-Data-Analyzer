@@ -8,4 +8,4 @@ faiss-cpu
 langchain-community
 langchain_google_genai
 pdf2image
-pytesseract==0.3.8
+pytesseract

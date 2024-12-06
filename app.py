@@ -12,6 +12,9 @@ import os
 from pdf2image import convert_from_path
 import pytesseract
 from tempfile import NamedTemporaryFile
+import shutil
+
+print(f"------SRIKANTH DEBUGGING-------\n{shutil.which("tesseract")}\n-----DEBUG ENDS-----\n")
 
 # Ensure Tesseract is configured
 pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'  # Update for your system
