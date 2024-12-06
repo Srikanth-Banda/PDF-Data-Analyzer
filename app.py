@@ -12,11 +12,11 @@ import os
 from pdf2image import convert_from_path
 import pytesseract
 from tempfile import NamedTemporaryFile
-import pytesseract
 
 # Ensure Tesseract is configured
 pytesseract.pytesseract.tesseract_cmd = r'/opt/homebrew/bin/tesseract'  # Update for your system
 print(pytesseract.pytesseract.tesseract_cmd)
+
 def get_pdf_text_with_ocr(uploaded_file):
     """Extract text from a Streamlit UploadedFile using OCR."""
     text = ""
@@ -73,7 +73,7 @@ def get_vector_store(text_chunks):
     return vector_store
 
 def get_conversation_chain(vector_store):
-    llm = ChatGoogleGenerativeAI(model="gemini-1.0-pro", convert_system_message_to_human=True)
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", convert_system_message_to_human=True)
     memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True, output_key='answer')
     retriever = vector_store.as_retriever()
     conversation_chain = ConversationalRetrievalChain.from_llm(
@@ -141,7 +141,6 @@ def main():
                 with st.spinner("Processing"):
                     raw_text = ""
                     for pdf in pdf_docs:
-                        # print(f"\n---------CONSOLE STATEMENT STARTS HERE:-------\n{pdf}\n---------CONSOLE STATEMENT ENDS HERE:-------\n")
                         raw_text += get_pdf_text_with_ocr(pdf)
 
                     text_chunks = get_text_chunks(raw_text)
